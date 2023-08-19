@@ -1,7 +1,7 @@
 20:04 02-08-2023
 1. Go through the mnist fastbook notebook. (complete)
 
-2. Create a mnist model from scratch.
+2. Create a mnist model from scratch.(complete)
 3. Create a mnist model using pytorch library.
 4. Create a model to classify all digits.
 5. Use the complete MNIST dataset for the final product, instead of the MNIST_SAMPLE I have used on previous iterations. https://docs.fast.ai/data.external.html#untar_data
