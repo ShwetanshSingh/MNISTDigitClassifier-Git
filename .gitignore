@@ -1,0 +1,5 @@
+# ignore vscode workspace file
+*.code-workspace
+
+# ignore PLAN.txt
+PLAN.txt
