@@ -1,5 +1,7 @@
 # ignore vscode workspace file
 *.code-workspace
 
-# ignore PLAN.txt
-PLAN.txt
+# ignore environment
+.venv/
+.ruff_cache/
+.ipynb_checkpoints
