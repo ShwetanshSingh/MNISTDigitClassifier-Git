@@ -1349,14 +1349,14 @@ name = "huggingface-hub"
 version = "0.34.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "filelock", marker = "python_full_version >= '3.10'" },
-    { name = "fsspec", marker = "python_full_version >= '3.10'" },
-    { name = "hf-xet", marker = "(python_full_version >= '3.10' and platform_machine == 'aarch64') or (python_full_version >= '3.10' and platform_machine == 'amd64') or (python_full_version >= '3.10' and platform_machine == 'arm64') or (python_full_version >= '3.10' and platform_machine == 'x86_64')" },
-    { name = "packaging", marker = "python_full_version >= '3.10'" },
-    { name = "pyyaml", marker = "python_full_version >= '3.10'" },
-    { name = "requests", marker = "python_full_version >= '3.10'" },
-    { name = "tqdm", marker = "python_full_version >= '3.10'" },
-    { name = "typing-extensions", marker = "python_full_version >= '3.10'" },
+    { name = "filelock" },
+    { name = "fsspec" },
+    { name = "hf-xet", marker = "platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'arm64' or platform_machine == 'x86_64'" },
+    { name = "packaging" },
+    { name = "pyyaml" },
+    { name = "requests" },
+    { name = "tqdm" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/45/c9/bdbe19339f76d12985bc03572f330a01a93c04dffecaaea3061bdd7fb892/huggingface_hub-0.34.4.tar.gz", hash = "sha256:a4228daa6fb001be3f4f4bdaf9a0db00e1739235702848df00885c9b5742c85c", size = 459768, upload-time = "2025-08-08T09:14:52.365Z" }
 wheels = [
@@ -2204,6 +2204,7 @@ dependencies = [
     { name = "h11" },
     { name = "httpcore" },
     { name = "httpx" },
+    { name = "huggingface-hub" },
     { name = "idna" },
     { name = "importlib-metadata" },
     { name = "importlib-resources" },
@@ -2363,6 +2364,7 @@ requires-dist = [
     { name = "h11", specifier = "==0.14.0" },
     { name = "httpcore", specifier = "==1.0.7" },
     { name = "httpx", specifier = "==0.28.0" },
+    { name = "huggingface-hub", specifier = ">=0.34.4" },
     { name = "idna", specifier = "==3.10" },
     { name = "importlib-metadata", specifier = "==8.5.0" },
     { name = "importlib-resources", specifier = "==6.4.5" },
