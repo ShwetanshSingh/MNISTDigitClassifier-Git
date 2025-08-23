@@ -10,12 +10,14 @@ import logging
 import traceback
 
 # Create logs directory if it doesn't exist
-log_dir = './logs'
+log_dir = "./logs"
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
 
 # Create log file with timestamp
-log_filename = os.path.join(log_dir, f'app_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+log_filename = os.path.join(
+    log_dir, f"app_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+)
 
 # Configure logging to write to file
 logging.basicConfig(
@@ -23,8 +25,8 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
         logging.FileHandler(log_filename),
-        logging.NullHandler()  # Prevents logs from going to console
-    ]
+        logging.NullHandler(),  # Prevents logs from going to console
+    ],
 )
 
 
@@ -95,7 +97,7 @@ iface = gr.Interface(
     inputs=gr.Image(
         type="pil",
         label="Upload Image",
-        image_mode="L", # Convert image to grayscale
+        image_mode="L",  # Convert image to grayscale
     ),
     outputs=gr.Textbox(label="Prediction"),
     title="MNIST Digit Classifier (3 vs 7)",
