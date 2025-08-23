@@ -1,0 +1,19 @@
+name: Sync to Hugging Face hub
+on:
+  push:
+    branches: [master]
+
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.hf_token }}
+        run: git push https://ShwetanshSingh:$HF_TOKEN@huggingface.co/spaces/ShwetanshSingh/MNISTDigitClassifier main
