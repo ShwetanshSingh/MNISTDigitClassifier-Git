@@ -1,3 +1,9 @@
+---
+title: MNISTDigitClassifier
+app_file: app.py
+sdk: gradio
+sdk_version: 5.29.1
+---
 # MNIST Digit Classifier
 This project is practice for creating a neural network from scratch. The project primarily uses the `Fastai` library. 
 
