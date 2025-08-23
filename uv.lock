@@ -2270,8 +2270,6 @@ dependencies = [
     { name = "python-dateutil" },
     { name = "python-json-logger" },
     { name = "pytz" },
-    { name = "pywin32" },
-    { name = "pywinpty" },
     { name = "pyyaml" },
     { name = "pyzmq" },
     { name = "referencing" },
@@ -2431,8 +2429,6 @@ requires-dist = [
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "python-json-logger", specifier = "==2.0.7" },
     { name = "pytz", specifier = "==2024.2" },
-    { name = "pywin32", specifier = "==308" },
-    { name = "pywinpty", specifier = "==2.0.14" },
     { name = "pyyaml", specifier = "==6.0.2" },
     { name = "pyzmq", specifier = "==26.2.0" },
     { name = "referencing", specifier = "==0.35.1" },
@@ -4545,7 +4541,7 @@ name = "triton"
 version = "3.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "filelock" },
+    { name = "filelock", marker = "python_full_version < '3.13'" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/98/29/69aa56dc0b2eb2602b553881e34243475ea2afd9699be042316842788ff5/triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6b0dd10a925263abbe9fa37dcde67a5e9b2383fc269fdf59f5657cac38c5d1d8", size = 209460013, upload-time = "2024-10-14T16:05:32.106Z" },
