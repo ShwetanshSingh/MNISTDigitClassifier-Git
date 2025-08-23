@@ -1,0 +1,31 @@
+name: Run Python script
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Make setup script executable
+      run: chmod +x ./setup.sh
+
+    - name: Run setup script
+      run: source setup.sh
+
+    - name: Log in to Hugging Face
+      run: python -c 'import huggingface_hub; huggingface_hub.login(token="${{ secrets.hf_token }}")'
+
+    - name: Deploy to Spaces
+      run: gradio deploy
