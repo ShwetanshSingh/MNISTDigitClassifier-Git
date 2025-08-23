@@ -1,3 +1,6 @@
+import os
+from datetime import datetime
+
 import gradio as gr
 import torch
 import pickle
@@ -6,9 +9,22 @@ import numpy as np
 import logging
 import traceback
 
-# Configure logging
+# Create logs directory if it doesn't exist
+log_dir = './logs'
+if not os.path.exists(log_dir):
+    os.makedirs(log_dir)
+
+# Create log file with timestamp
+log_filename = os.path.join(log_dir, f'app_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+
+# Configure logging to write to file
 logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler(log_filename),
+        logging.NullHandler()  # Prevents logs from going to console
+    ]
 )
 
 
@@ -30,7 +46,7 @@ def load_model(filename="./models/mnist_model.pkl"):
         raise
 
 
-# Load the model
+# Load model
 weights, bias = load_model()
 
 
@@ -79,14 +95,11 @@ iface = gr.Interface(
     inputs=gr.Image(
         type="pil",
         label="Upload Image",
-        image_mode="L",  # Accept grayscale images
+        image_mode="L", # Convert image to grayscale
     ),
     outputs=gr.Textbox(label="Prediction"),
     title="MNIST Digit Classifier (3 vs 7)",
     description="Upload an image of a handwritten digit (3 or 7) and the model will predict which digit it is.",
-    examples=[
-        # You can add example image paths here if you have any
-    ],
 )
 
 if __name__ == "__main__":
