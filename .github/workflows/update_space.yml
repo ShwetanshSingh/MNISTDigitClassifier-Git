@@ -20,14 +20,11 @@ jobs:
       with:
         python-version: '3.12'
 
-    - name: Make setup script executable
-      run: chmod +x ./setup.sh
-
-    - name: Run setup script
-      run: source setup.sh
+    - name: install huggingface-hub
+      run: pip install huggingface-hub
 
     - name: Log in to Hugging Face
-      run: uv run hf_login.py
+      run: python -c 'import huggingface_hub; huggingface_hub.login(token="${{ secrets.hf_token }}")'
 
     - name: Deploy to Spaces
       run: gradio deploy

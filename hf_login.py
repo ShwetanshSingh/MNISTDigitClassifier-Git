@@ -1,1 +1,0 @@
-import huggingface_hub; huggingface_hub.login(token="${{ secrets.hf_token }}")
