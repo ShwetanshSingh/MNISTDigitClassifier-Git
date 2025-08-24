@@ -23,11 +23,8 @@ jobs:
     - name: install huggingface-hub
       run: pip install huggingface-hub
 
-    - name: install gradio
-      run: pip install gradio
-
     - name: Log in to Hugging Face
       run: python -c 'import huggingface_hub; huggingface_hub.login(token="${{ secrets.hf_token }}")'
 
-    - name: Deploy to Spaces
-      run: gradio deploy
+    - name: push to Spaces
+      run: git push https://huggingface.co/spaces/ShwetanshSingh/MNISTDigitClassifier master:main
