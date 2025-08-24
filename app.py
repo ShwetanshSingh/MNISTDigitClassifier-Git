@@ -91,6 +91,19 @@ def predict(input_image):
         return error_msg
 
 
+# Read README.md content for the article in UI
+try:
+    readme_path = os.path.join(os.path.dirname(__file__), 'README.md')
+    with open(readme_path, 'r', encoding='utf-8') as f:
+        # Skip first 6 lines
+        for _ in range(6):
+            next(f)
+        readme_content = f.read()
+    logging.info("README.md file read successfully (from line 7)")
+except Exception as e:
+    readme_content = "README.md not found or couldn't be read"
+    logging.error(f"Error reading README.md: {str(e)}")
+
 # Create Gradio interface
 iface = gr.Interface(
     fn=predict,
@@ -102,6 +115,7 @@ iface = gr.Interface(
     outputs=gr.Textbox(label="Prediction"),
     title="MNIST Digit Classifier (3 vs 7)",
     description="Upload an image of a handwritten digit (3 or 7) and the model will predict which digit it is.",
+    article=readme_content
 )
 
 if __name__ == "__main__":
