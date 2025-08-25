@@ -5,7 +5,7 @@ sdk: gradio
 sdk_version: 5.29.1
 ---
 # MNIST Digit Classifier
-> [GitHub](https://github.com/ShwetanshSingh/MNISTDigitClassifier-Git)
+> [GitHub](https://github.com/ShwetanshSingh/MNISTDigitClassifier-Git)  
 > [HuggingFace Spaces](https://huggingface.co/spaces/ShwetanshSingh/MNISTDigitClassifier) deployed app
 
 This project is practice for creating a neural network from scratch. The project primarily uses the `Fastai` library. 
