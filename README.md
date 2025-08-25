@@ -5,12 +5,16 @@ sdk: gradio
 sdk_version: 5.29.1
 ---
 # MNIST Digit Classifier
+> [GitHub](https://github.com/ShwetanshSingh/MNISTDigitClassifier-Git)
+> [HuggingFace Spaces](https://huggingface.co/spaces/ShwetanshSingh/MNISTDigitClassifier) deployed app
+
 This project is practice for creating a neural network from scratch. The project primarily uses the `Fastai` library. 
 
 ## Model
 The model is a **single layer network**. The activation function used is a **sigmoid** to make the output of the network as 0 or 1 (digit `3` or `7`).
 
 ## Setup
+**GitHub Codespaces**
 - Create a codespace from code icon at the top
 - Run `source setup.sh` in terminal to setup the environment. This process will take time
 

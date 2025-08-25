@@ -93,8 +93,8 @@ def predict(input_image):
 
 # Read README.md content for the article in UI
 try:
-    readme_path = os.path.join(os.path.dirname(__file__), 'README.md')
-    with open(readme_path, 'r', encoding='utf-8') as f:
+    readme_path = os.path.join(os.path.dirname(__file__), "README.md")
+    with open(readme_path, "r", encoding="utf-8") as f:
         # Skip first 6 lines
         for _ in range(6):
             next(f)
@@ -115,7 +115,7 @@ iface = gr.Interface(
     outputs=gr.Textbox(label="Prediction"),
     title="MNIST Digit Classifier (3 vs 7)",
     description="Upload an image of a handwritten digit (3 or 7) and the model will predict which digit it is.",
-    article=readme_content
+    article=readme_content,
 )
 
 if __name__ == "__main__":
