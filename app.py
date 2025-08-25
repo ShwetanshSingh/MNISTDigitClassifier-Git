@@ -10,12 +10,12 @@ import logging
 import traceback
 
 # Create logs directory if it doesn't exist
-log_dir = "./logs"
+log_dir: str = "./logs"
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
 
 # Create log file with timestamp
-log_filename = os.path.join(
+log_filename: str = os.path.join(
     log_dir, f"app_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 )
 
@@ -30,7 +30,7 @@ logging.basicConfig(
 )
 
 
-def load_model(filename="./models/mnist_model.pkl"):
+def load_model(filename: str = "./models/mnist_model.pkl"):
     try:
         logging.info(f"Attempting to load model from {filename}")
         with open(filename, "rb") as f:
@@ -104,6 +104,13 @@ except Exception as e:
     readme_content = "README.md not found or couldn't be read"
     logging.error(f"Error reading README.md: {str(e)}")
 
+# Get all image files from sample_data folder
+examples = [
+    os.path.join("./sample_data", f)
+    for f in os.listdir("./sample_data")
+    if f.lower().endswith((".png", ".jpg", ".jpeg"))
+]
+
 # Create Gradio interface
 iface = gr.Interface(
     fn=predict,
@@ -116,6 +123,7 @@ iface = gr.Interface(
     title="MNIST Digit Classifier (3 vs 7)",
     description="Upload an image of a handwritten digit (3 or 7) and the model will predict which digit it is.",
     article=readme_content,
+    examples=examples,
 )
 
 if __name__ == "__main__":
